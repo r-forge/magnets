@@ -1,0 +1,25 @@
+citHeader("To cite in publications use:")
+
+## R >= 2.8.0 passes package metadata to citation().
+if(!exists("meta") || is.null(meta)) meta <- packageDescription("tm")
+
+year <- sub("-.*", "", meta$Date)
+note <- sprintf("R package version %s.", meta$Version)
+
+citEntry(entry = "Manual",
+         title = "magnets: Micro-magnet Array Dynamics Simulation Package",
+         author = {
+             personList(person("Hai", "Qian",
+                               email = "haiqian@ucla.edu"))
+         },
+         year = year,
+         note = note,
+         url = "http://magnets.r-forge.r-project.org/",
+         textVersion = {
+             paste("Hai Qian",
+                   sprintf("(%s).", year),                         
+                   "magnets: Micro-magnet Array Dynamics Simulation Package.",
+                   note,
+                   sep = "  ")
+         })
+
